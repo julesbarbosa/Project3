@@ -1,0 +1,8 @@
+### SPLIT
+data_train <- sample(1:nrow(data),0.10*nrow(data))
+train <- data[data_train,]
+
+# define the control using a random forest selection function
+control <- rfeControl(functions=rfFuncs, method="cv", number=10)
+# run the RFE algorithm
+results <- rfe(train[,2:105], train[,105], sizes=c(10,20,30,40), rfeControl=control)
