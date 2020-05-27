@@ -10,7 +10,6 @@ results <- rfe(train[,2:105], train[,105], sizes=c(10,20,30,40), rfeControl=cont
 
 ### BORUTA METHOD
 
-
 data <- HealthSurvey
 
 str(data)
@@ -48,13 +47,9 @@ data$exract21 <- NULL
 
 data$weight2 <- as.numeric(data$weight2)
 
-
-
 ### SPLIT
 data_train <- sample(1:nrow(data),0.50*nrow(data))
 train <- data[data_train,]
-
-
 
 #### BORUTA
 install.packages("Boruta")
